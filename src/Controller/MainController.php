@@ -2,14 +2,27 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class MainController
+class MainController extends AbstractController
 {
     #[Route('/')]
-    public function homepage(): Response {
-        return new Response('<strong>Homepage</strong> : here it is !');
+    public function homepage(): Response
+    {
+        $starshipCount = 78;
+
+        $myShip = [
+            'name' => 'Millennium Falcon',
+            'model' => 'YT-1300 light freighter',
+            'manufacturer' => 'Corellian Engineering Corporation',
+        ];
+
+        return $this->render('main/homepage.html.twig', [
+            'memberOfStarship' => $starshipCount,
+            'myShip' => $myShip,
+        ]);
 
     }
 } 

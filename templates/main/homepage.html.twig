@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Startshop{% endblock %}
+
+{% block body %}
+
+<h1>Startshop : viens pas test</h1>
+
+<div>
+    Navige à travers nos {{ memberOfStarship }} vaisseaux spatiaux et choisis celui qui te convient le mieux !
+
+    {% if memberOfStarship > 0 %}
+        <p>Il y a {{ memberOfStarship }} vaisseaux disponibles.</p>
+    {% else %}
+        <p>Aucun vaisseau disponible pour le moment.</p>
+    {% endif %}
+</div>
+
+<div>
+    <h2>Mon Vaisseau</h2>
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <td>{{ myShip.name|upper }}</td>
+        </tr>
+        <tr>
+            <th>Modèle</th>
+            <td>{{ myShip.model }}</td>
+        </tr>
+        <tr>
+            <th>Fabricant</th>
+            <td>{{ myShip.manufacturer }}</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
